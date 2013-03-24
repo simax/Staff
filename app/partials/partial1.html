@@ -1,0 +1,13 @@
+<div ng-controller="StaffListController">
+    <div>
+        <div ng-repeat="department in departments">
+            <h4>{{department.name}} : </h4>
+            <div ng-repeat="employee in department.employees">
+                {{employee.firstname}} {{employee.lastname}} {{employee.email}}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
