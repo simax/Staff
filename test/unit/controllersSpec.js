@@ -3,6 +3,7 @@
 describe('StaffListController', function(){
     var scope, ctrl;
     beforeEach(module('staffApp.controllers'));
+    beforeEach(module('staffApp.services'));
     beforeEach(inject(function($rootScope, $controller) {
         scope = {};
         ctrl = $controller('StaffListController', {$scope: scope})
@@ -10,10 +11,6 @@ describe('StaffListController', function(){
 
     it('StaffListController should be defined', function() {
         expect(ctrl).toBeDefined();
-    });
-
-    it('$scope.myData should be set to Simon', function() {
-        expect(scope.myData).toBe('Simon');
     });
 
     it('$scope.departments should have a length of 4', function() {
