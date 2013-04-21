@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('StaffApp')
-    .controller('StaffListController', function ($scope, departmentsModel) {
-        $scope.departments =  departmentsModel.getDepartments();
+    .controller('StaffListController', function ($scope, DepartmentsModel) {
+        $scope.departments =  DepartmentsModel.getDepartments();
     });
