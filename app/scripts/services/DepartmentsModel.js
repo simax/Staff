@@ -7,8 +7,8 @@ angular.module('StaffApp')
                 {'name' : 'Development',
                     'employees' : [
                         {'firstname' : 'Dan', 'lastname' : 'Ormisher', 'email' : 'danielormisher@ekmsystems.co.uk'},
-                        {'firstname' : 'Nick', 'lastname' : 'Stansfield', 'email' : 'nickstansfield@ekmsystems.co.uk'},
-                        {'firstname' : 'Simon', 'lastname' : 'Lomax', 'email' : 'simonlomax@ekmsystems.co.uk'}
+                        {'firstname' : 'Simon', 'lastname' : 'Lomax', 'email' : 'simax.99.99@gmail.com'},
+                        {'firstname' : 'Nick', 'lastname' : 'Stansfield', 'email' : 'nickstansfield@ekmsystems.co.uk'}
                     ]},
                 {'name' : 'Design',
                     'employees' : [

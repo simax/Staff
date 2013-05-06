@@ -9,10 +9,12 @@ files = [
   JASMINE_ADAPTER,
   'app/components/angular/angular.js',
   'app/components/angular-mocks/angular-mocks.js',
+  'app/index.html',
   'app/scripts/*.js',
   'app/scripts/**/*.js',
   'test/mock/**/*.js',
   'test/spec/**/*.js'
+
 ];
 
 // list of files to exclude
@@ -46,7 +48,7 @@ autoWatch = false;
 // - Safari (only Mac)
 // - PhantomJS
 // - IE (only Windows)
-browsers = ['Chrome'];
+browsers = ['Safari'];
 
 // If browser does not capture in given timeout [ms], kill it
 captureTimeout = 5000;
