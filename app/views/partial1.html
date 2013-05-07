@@ -1,28 +1,28 @@
 <div ng-controller="StaffListController">
     <div>
-        <!--<div ng-repeat="department in departments | orderBy:'name'">-->
+        <div ng-repeat="department in departments | orderBy:'name'">
 
-            <!--<h4 style="clear: both">{{department.name}} : </h4>-->
+            <h4 style="clear: both">{{department.name}} : </h4>
 
-            <!--&lt;!&ndash;<div class="employee-container">&ndash;&gt;-->
+            <!--<div class="employee-container">-->
 
-                <!--<div ng-repeat="employee in department.employees | orderBy:'lastname'"  >-->
-                    <!--<div class="employee-container" >-->
-                        <!--&lt;!&ndash;<button class="btn-remove-employee" type="button" ><i class="icon-remove"/></button>&ndash;&gt;-->
-                        <!--<gravatar-image class="employee-image" data-email="employee.email" data-size="105" data-default="404" ></gravatar-image>-->
-                        <!--<span style="font-weight: bold; display: block; text-align: center; margin-left: auto; margin-right: auto; width: 150px;">{{employee.firstname}} {{employee.lastname}}</span>-->
-                    <!--</div>-->
-                <!--</div>-->
+                <div ng-repeat="employee in department.employees | orderBy:'lastname'"  >
+                    <div class="employee-container" >
+                        <!--<button class="btn-remove-employee" type="button" ><i class="icon-remove"/></button>-->
+                        <gravatar-image class="employee-image" data-email="employee.email" data-size="105" data-default="404" ></gravatar-image>
+                        <span style="font-weight: bold; display: block; text-align: center; margin-left: auto; margin-right: auto; width: 150px;">{{employee.firstname}} {{employee.lastname}}</span>
+                    </div>
+                </div>
 
-                <!--&lt;!&ndash;<img class="edit img-polaroid employee-image" src = "{{gravatar}}", title = "{{fullname}}" />&ndash;&gt;-->
-                <!--&lt;!&ndash;<span style="font-weight: bold; display: block; text-align: center; margin-left: auto; margin-right: auto; width: 150px;">{{fullname}}</span>&ndash;&gt;-->
+                <!--<img class="edit img-polaroid employee-image" src = "{{gravatar}}", title = "{{fullname}}" />-->
+                <!--<span style="font-weight: bold; display: block; text-align: center; margin-left: auto; margin-right: auto; width: 150px;">{{fullname}}</span>-->
 
-                <!--&lt;!&ndash;<img class="edit img-polaroid employee-image" src = "{{gravatar}}", title = "{{fullname}}" />&ndash;&gt;-->
+                <!--<img class="edit img-polaroid employee-image" src = "{{gravatar}}", title = "{{fullname}}" />-->
 
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-        <!--</div>-->
-        <gravatar-image class="employee-image" data-email="person1.email" data-size="105" data-default="404" ></gravatar-image>
-        <gravatar-image class="employee-image" data-email="person2.email" data-size="105" data-default="404" ></gravatar-image>
+            <!--</div>-->
+        </div>
+        <!--<gravatar-image class="employee-image" data-email="person1.email" data-size="105" data-default="404" ></gravatar-image>-->
+        <!--<gravatar-image class="employee-image" data-email="person2.email" data-size="105" data-default="404" ></gravatar-image>-->
     </div>
 </div>
 
