@@ -8,7 +8,7 @@
 
                 <div ng-repeat="employee in department.employees | orderBy:'lastname'"  >
                     <div class="employee-container" >
-                        <!--<button class="btn-remove-employee" type="button" ><i class="icon-remove"/></button>-->
+                        <button class="btn-remove-employee" type="button" ><i class="icon-remove"> </i></button>
                         <gravatar-image class="employee-image" data-email="employee.email" data-size="105" data-default="404" ></gravatar-image>
                         <span style="font-weight: bold; display: block; text-align: center; margin-left: auto; margin-right: auto; width: 150px;">{{employee.firstname}} {{employee.lastname}}</span>
                     </div>
