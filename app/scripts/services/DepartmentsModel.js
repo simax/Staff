@@ -6,16 +6,16 @@ angular.module('StaffApp')
             return [
                 {'name' : 'Development',
                     'employees' : [
-                        {'firstname' : 'Dan', 'lastname' : 'Ormisher', 'email' : 'danielormisher@ekmsystems.co.uk'},
-                        {'firstname' : 'Simon', 'lastname' : 'Lomax', 'email' : 'simax.99.99@gmail.com'},
-                        {'firstname' : 'Nick', 'lastname' : 'Stansfield', 'email' : 'nickstansfield@ekmsystems.co.uk'}
+                        {'id': 1, 'firstname' : 'Dan', 'lastname' : 'Ormisher', 'email' : 'danielormisher@ekmsystems.co.uk'},
+                        {'id': 2, 'firstname' : 'Simon', 'lastname' : 'Lomax', 'email' : 'simax.99.99@gmail.com'},
+                        {'id': 3, 'firstname' : 'Nick', 'lastname' : 'Stansfield', 'email' : 'nickstansfield@ekmsystems.co.uk'}
                     ]},
                 {'name' : 'Design',
                     'employees' : [
-                        {'firstname' : 'David', 'lastname' : 'Sharpe', 'email' : 'davidsharpe@ekmsystems.co.uk'}]},
+                        {'id': 4, 'firstname' : 'David', 'lastname' : 'Sharpe', 'email' : 'davidsharpe@ekmsystems.co.uk'}]},
                 {'name' : 'Customer Services',
                     'employees' : [
-                        {'firstname' : 'Matthew', 'lastname' : 'Allingham', 'email' : 'matthewallingham@ekmsystems.co.uk'}]},
+                        {'id': 5, 'firstname' : 'Matthew', 'lastname' : 'Allingham', 'email' : 'matthewallingham@ekmsystems.co.uk'}]},
                 {'name' : 'Sales'}
             ];
         };
