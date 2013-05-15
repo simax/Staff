@@ -12,7 +12,7 @@ describe('Service: DepartmentsModel', function () {
   }));
 
   it('should do something', function () {
-    expect(!!DepartmentsModel).toBe(true);
+    expect(DepartmentsModel).toBeDefined();
   });
 
 });
