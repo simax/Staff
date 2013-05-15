@@ -17,7 +17,7 @@ files = [
 ];
 
 // list of files to exclude
-exclude = [];
+exclude = ['app/scripts/web-server.js'];
 
 // test results reporter to use
 // possible values: dots || progress || growl
