@@ -19,6 +19,10 @@ files = [
 // list of files to exclude
 exclude = ['app/scripts/web-server.js'];
 
+preprocessors = {
+    'directives/*.html': 'html2js'
+};
+
 // test results reporter to use
 // possible values: dots || progress || growl
 reporters = ['progress'];

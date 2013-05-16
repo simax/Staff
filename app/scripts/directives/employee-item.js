@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('StaffApp')
+angular.module('StaffApp.directives', [])
   .directive('employeeItem', function ($location) {
     return {
       templateUrl: 'scripts/directives/employee-item-template.html',
@@ -21,8 +21,6 @@ angular.module('StaffApp')
           scope.edit = function(id) {
               $location.path('/edit/'+id);
           }
-
-
       }
     };
   });

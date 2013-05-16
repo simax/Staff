@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('StaffApp')
+angular.module('StaffApp.services')
     .factory('DepartmentsModel', function() {
         var getDepartments = function() {
             return [
