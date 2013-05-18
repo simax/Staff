@@ -12,15 +12,30 @@ angular.module('StaffApp.services')
                     ]},
                 {'name' : 'Design',
                     'employees' : [
-                        {'id': 4, 'firstname' : 'David', 'lastname' : 'Sharpe', 'email' : 'davidsharpe@ekmsystems.co.uk'}]},
+                        {'id': 4, 'firstname' : 'David', 'lastname' : 'Sharpe', 'email' : 'davidsharpe@ekmsystems.co.uk'}
+                    ]},
                 {'name' : 'Customer Services',
                     'employees' : [
-                        {'id': 5, 'firstname' : 'Matthew', 'lastname' : 'Allingham', 'email' : 'matthewallingham@ekmsystems.co.uk'}]},
+                        {'id': 5, 'firstname' : 'Matthew', 'lastname' : 'Allingham', 'email' : 'matthewallingham@ekmsystems.co.uk'}
+                    ]},
                 {'name' : 'Sales'}
             ];
         };
 
+        var getEmployeeById = function(empId) {
+            empId = parseInt(empId);
+            var employee = undefined;
+            var departments = this.getDepartments();
+            _.each(departments, function(dep){
+                if(!employee){
+                    employee = _.find(dep.employees, function(emp) { return emp.id === empId });
+                }
+            });
+            return employee;
+        };
+
         return {
+            getEmployeeById: getEmployeeById,
             getDepartments: getDepartments
         };
     });

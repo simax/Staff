@@ -1,0 +1,9 @@
+<div>
+    <div ng-repeat="department in departments | orderBy:'name'">
+        <h4 style="clear: both">{{department.name}} : </h4>
+        <div ng-repeat="employee in department.employees | orderBy:'lastname'"  >
+            <employee-item employee="employee"></employee-item>
+        </div>
+    </div>
+</div>
+
