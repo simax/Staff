@@ -15,6 +15,8 @@
     <title>My AngularJS App</title>
 
     <link rel="stylesheet" href="components/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="components/bootstrap/css/darkstrap.css"/>
+    <link rel="stylesheet" href="components/bootstrap/css/bootstrap-responsive.css"/>
     <link rel="stylesheet" href="components/bootstrap/css/bootstrap-responsive.css"/>
     <link rel="stylesheet" href="styles/main.css"/>
 
@@ -35,24 +37,22 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
-                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="brand" href="#">Project name</a>
+
+                <a class="brand" href="#">EKM Systems - Staff holiday planner</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li ng-class="{acive: $index == selectedIndex}" ng-repeat="menuItem in MenuItems">
+                            <a href="#/{{menuItem.route}}">{{menuItem.name}}</a>
+                        </li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
         </div>
     </div>
 </div>
+
 <div ng-view></div>
+
 <script src="components/underscore/underscore.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="components/angular/angular.js"></script>
@@ -66,6 +66,7 @@
 
 <!-- build:js scripts/scripts.js -->
 <script src="scripts/app.js"></script>
+<script src="scripts/controllers/MainNav.js"></script>
 <script src="scripts/controllers/StaffList.js"></script>
 <script src="scripts/controllers/EmployeeMaintenance.js"></script>
 <script src="scripts/services/DepartmentsModel.js"></script>
