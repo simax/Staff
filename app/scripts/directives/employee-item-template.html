@@ -1,5 +1,5 @@
-<div class="employee-container" >
-    <button class="btn-remove-employee" type="button" ng-click="alertRemove(employee.id)"><i class="icon-remove"></i></button>
+<div class="employee-container well pull-left">
+    <button class="btn-remove-employee" style="border: none; background-color: black" type="button" ng-click="alertRemove(employee.id)"><i class="icon-remove-sign"></i></button>
     <gravatar-image ng-click="edit(employee.id)" class="employee-image" data-email="employee.email" data-size="105" data-default="404" ></gravatar-image>
-    <span style="font-weight: bold; display: block; text-align: center; margin-left: auto; margin-right: auto; width: 150px;">{{employee.firstname}} {{employee.lastname}}</span>
+    <span class="label label-inverse" style="margin-top:15px; display: block; text-align: center; margin-left: auto; margin-right: auto; width: 150px;">{{employee.firstname}} {{employee.lastname}}</span>
 </div>

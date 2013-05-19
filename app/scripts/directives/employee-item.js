@@ -12,14 +12,13 @@ angular.module('StaffApp.directives', ['md5', 'ui-gravatar'])
       link: function postLink(scope) {
           scope.alertRemove = function(id){
               alert("Remove employee with id: " + id);
-              var z = _(scope.departments).reject(function(el) {
+              scope.departments = _(scope.departments).reject(function(el) {
                   return el.id === id;
               });
-              scope.departments=z;
           }
 
           scope.edit = function(id) {
-              $location.path('employee/edit/'+id);
+              $location.path('employees/edit/' + id);
           }
       }
     };

@@ -1,52 +1,53 @@
-<form class="form-horizontal" name="myForm">
+<form class="form-horizontal" name="employeeForm">
 
     <div class="control-fluid">
         <div class="row-fluid">
             <div class="span4">
                 <fieldset>
-                    <div class="control-group" ng-class="{error: myForm.email.$invalid}">
+                    <div class="control-group" ng-class="{error: employeeForm.email.$invalid}">
                         <label class="control-label">Email</label>
                         <div class="controls">
                             <input type="text" name="email" ng-model="employee.email" required placeholder="Email address">
-                            <!--<span ng-show="myForm.email.$error.required" class="help-inline">Required</span>-->
+                            <!--<span ng-show="employeeForm.email.$error.required" class="help-inline">Required</span>-->
                         </div>
                     </div>
 
-                    <div class="control-group" ng-class="{error: myForm.firstname.$invalid}">
+                    <div class="control-group" ng-class="{error: employeeForm.firstname.$invalid}">
                         <label class="control-label">First name</label>
                         <div class="controls">
                             <input type="text" name="firstname" ng-model="employee.firstname" required placeholder="First name">
-                            <!--<span ng-show="myForm.firstname.$error.required" class="help-inline">Required</span>-->
+                            <!--<span ng-show="employeeForm.firstname.$error.required" class="help-inline">Required</span>-->
                         </div>
                     </div>
 
-                    <div class="control-group" ng-class="{error: myForm.lastname.$invalid}">
+                    <div class="control-group" ng-class="{error: employeeForm.lastname.$invalid}">
                         <label class="control-label">Last name</label>
                         <div class="controls">
                             <input type="text" name="lastname" ng-model="employee.lastname" required placeholder="Last name">
-                            <!--<span ng-show="myForm.lastname.$error.required" class="help-inline">Required</span>-->
+                            <!--<span ng-show="employeeForm.lastname.$error.required" class="help-inline">Required</span>-->
                         </div>
                     </div>
 
-                    <br>
-                    <div class="form-actions">
-                        <a href="#/" class="btn">Cancel</a>
-                        <button ng-click="save()" ng-disabled="isClean() || myForm.$invalid" class="btn btn-primary">Save</button>
-                    </div>
-            </fieldset>
+                </fieldset>
             </div>
 
             <div class="span6">
-                <div class="control-group" style="width: 160; height: 160;">
-                    <gravatar-image ng-show="employee.email"
-                                    ng-click="edit(employee.id)"
-                                    class="employee-image"
-                                    data-email="employee.email"
-                                    data-size="150"
-                                    data-default="404" >
-                    </gravatar-image>
+                <div class="control-group" >
+                    <div class="well span4">
+                        <gravatar-image ng-show="employee.email"
+                                        ng-click="edit(employee.id)"
+                                        class="employee-image"
+                                        data-email="employee.email"
+                                        data-size="170"
+                                        data-default="404" >
+                        </gravatar-image>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="form-actions span8">
+            <a href="#/employees" class="btn">Cancel</a>
+            <button ng-click="save(employee)" ng-disabled="isClean() || employeeForm.$invalid" class="btn btn-primary">Save</button>
         </div>
     </div>
 </form>

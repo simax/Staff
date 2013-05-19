@@ -1,9 +1,15 @@
-<div>
-    <div ng-repeat="department in departments | orderBy:'name'">
-        <h4 style="clear: both">{{department.name}} : </h4>
-        <div ng-repeat="employee in department.employees | orderBy:'lastname'"  >
-            <employee-item employee="employee"></employee-item>
-        </div>
+<div class="container-fluid">
+    <div class="row-fluid" >
+        <ul style="list-style-type: none">
+            <li class="well" ng-repeat="department in departments | orderBy:'name'">
+                <ul class="thumbnails">
+                    <h4 style="padding-left: 30px;">{{department.name}} : </h4>
+                    <button class="btn pull-right btn-primary" ng-click="addEmployee(department.name)">Add employee</button>
+                    <li ng-repeat="employee in department.employees | orderBy:'lastname'"  >
+                        <employee-item employee="employee"></employee-item>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </div>
 </div>
-

@@ -7,17 +7,28 @@ angular.module('StaffApp.filters', []);
 angular.module('StaffApp.services', []);
 angular.module('StaffApp', ['StaffApp.controllers', 'StaffApp.directives', 'StaffApp.filters', 'StaffApp.services' ])
 
-  .config(['$routeProvider', function($rootScope, $routeProvider) {
-
-//        $rootScope.MenuItems = [{ name : "Home", route: ""}, {name : "About", route: "About"}, {name: "Contact", route: "Contact"}];
-//        $rootScope.SetSelected = function(item){
-//            $rootScope.selectedIndex = item;
-//        }
-
-
+  .config(['$routeProvider', function($routeProvider) {
         $routeProvider.
-            when('/', {templateUrl: 'views/employeesList.html', controller: 'StaffListController'}).
+            when('/', {templateUrl: 'views/home.html', controller: 'HomeController'}).
+            when('/employees', {templateUrl: 'views/employeesList.html', controller: 'StaffListController'}).
             when('/about', {templateUrl: 'views/AboutApp.html', controller: 'AboutAppController'}).
-            when('/employee/edit/:empId', {templateUrl: 'views/employeeDetail.html', controller: 'EmployeeMaintenanceController'}).
+            when('/contact', {templateUrl: 'views/Contact.html', controller: 'ContactController'}).
+            when('/employees/add/:departmentName', {templateUrl: 'views/employeeDetail.html', controller: 'EmployeeMaintenanceController'}).
+            when('/employees/edit/:empId', {templateUrl: 'views/employeeDetail.html', controller: 'EmployeeMaintenanceController'}).
             otherwise({redirectTo: '/'});
-  }]);
+  }])
+   .run(function($rootScope, $location){
+
+        $rootScope.getClass = function(path) {
+            var cur_path = $location.path().substr(0, path.length);
+            if (cur_path == path) {
+                if($location.path().substr(0).length > 1 && path.length == 1 )
+                    return "";
+                else
+                    return "active";
+            } else {
+                return "";
+            }
+        }
+
+    });
