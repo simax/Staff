@@ -96,3 +96,38 @@ body {
   padding: 0;
 }
 
+
+/* Animations */
+
+.view-enter-setup, .view-leave-setup {
+
+    -webkit-transition:all 1s ease-in-out;
+    -moz-transition:all 1s ease-in-out;
+    -o-transition:all 1s ease-in-out;
+    transition:all 1s ease-in-out;
+}
+
+.view-enter-setup {
+
+    left:100%;
+    width:100%;
+    position:absolute;
+}
+
+.view-enter-setup.view-enter-start {
+
+    left:0;
+}
+
+.view-leave-setup {
+
+    position:absolute;
+    left:0;
+    width:100%;
+}
+
+.view-leave-setup.view-leave-start {
+
+    left:-100%;
+}
+
