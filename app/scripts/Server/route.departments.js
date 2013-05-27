@@ -1,14 +1,14 @@
 
-schemas = require("./schemas");
 
-var DepartmentRoutes = function() {
 
-    this.Model = global.schemas.DepartmentSchemaModel;
+module.exports = function DepartmentRoutes(schemas) {
+
+    var Model = schemas.DepartmentSchemaModel;
 
     this.post = function(req, res) {
         var entity,
             _this = this;
-        entity = new this.Model;
+        entity = new EmployeeSchemaModel;
         this.modelBind(entity, req);
         return entity.save(function(err) {
             return _this.save(entity, res, err);
@@ -16,10 +16,10 @@ var DepartmentRoutes = function() {
     };
 
     this.getall = function(req, res) {
-//        res.send("Departments get all !!!!");
-//        return;
+
         res.contentType('application/json');
-        return this.Model.find().sort({
+
+        return Model.find().sort({
             'name': 'asc'
         }).exec(function(err, data) {
                 if (err) {
@@ -70,6 +70,4 @@ var DepartmentRoutes = function() {
         }
     };
 };
-
-module.exports = DepartmentRoutes;
 

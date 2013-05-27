@@ -1,9 +1,8 @@
 
-schemas = require("./schemas");
+module.exports = function EmployeeRoutes(schemas) {
 
-module.exports = function EmployeeRoutes() {
-    this.Model = global.schemas.DepartmentSchemaModel;
-    
+    var Model = schemas.EmployeeSchemaModel;
+
     this.put = function(req, res) {
         var _this = this;
         return this.Model.findOne({
@@ -42,7 +41,7 @@ module.exports = function EmployeeRoutes() {
             if (department == null) {
                 res.send(404);
             }
-            employee = new global.schemas.EmployeeSchemaModel();
+            employee = new this.schemas.EmployeeSchemaModel();
             _this.modelBind(employee, req);
             department.employees.addToSet(employee);
             return department.save(function(err) {
@@ -53,7 +52,7 @@ module.exports = function EmployeeRoutes() {
 
     this.getall = function(req, res) {
         res.contentType('application/json');
-        return this.Model.find().exec(function(err, data) {
+        return Model.find().exec(function(err, data) {
             if (err) {
                 res.send(err);
             }

@@ -1,9 +1,7 @@
+var mongoose = require('mongoose');
 
-var Schemas;
-
-Schemas = function Schemas() {
-    this.mongoose = require('mongoose');
-    this.schema = this.mongoose.Schema;
+module.exports = function Schemas() {
+    this.schema = mongoose.Schema;
     this.EmployeeSchema = new this.schema({
         'firstname': {
             type: String,
@@ -36,7 +34,7 @@ Schemas = function Schemas() {
             "default": true
         }
     });
-    this.EmployeeSchemaModel = this.mongoose.model('employees', this.EmployeeSchema);
+    this.EmployeeSchemaModel = mongoose.model('employees', this.EmployeeSchema);
 
     this.DepartmentSchema = new this.schema({
         'name': {
@@ -49,9 +47,8 @@ Schemas = function Schemas() {
         },
         'employees': [this.EmployeeSchema]
     });
-    this.DepartmentSchemaModel = this.mongoose.model('departments', this.DepartmentSchema);
+    this.DepartmentSchemaModel = mongoose.model('departments', this.DepartmentSchema);
 
-    this.mongoose.connect('mongodb://localhost:8120/staff');
+    mongoose.connect('mongodb://localhost:8120/staff');
 };
 
-module.exports = Schemas;
