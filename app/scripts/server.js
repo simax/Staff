@@ -23,17 +23,17 @@ var basePath = '',
 //            layout: false
 //        });
         server.use(express.bodyParser());
+        server.use('/app', express.static('app'));
         server.use(server.router);
-//        server.use(express.static('/app'));
         server.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
     });
 
-    server.get('/app', function(req, res) {
-
-        var indexFile = path.join(__dirname, '../index.html');
-        console.log("Path: " + indexFile);
-        res.sendfile(indexFile);
-    });
+//    server.get('/app', function(req, res) {
+//
+//        var indexFile = path.join(__dirname, '../index.html');
+//        console.log("Path: " + indexFile);
+//        res.sendfile(indexFile);
+//    });
 
     server.namespace(basePath, function() {
 
