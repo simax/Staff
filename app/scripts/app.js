@@ -14,7 +14,7 @@ angular.module('StaffApp', ['StaffApp.controllers', 'StaffApp.directives', 'Staf
             when('/about', {templateUrl: 'views/AboutApp.html', controller: 'AboutAppController'}).
             when('/contact', {templateUrl: 'views/Contact.html', controller: 'ContactController'}).
             when('/employees/add/:departmentName', {templateUrl: 'views/employeeDetail.html', controller: 'EmployeeMaintenanceController'}).
-            when('/employees/edit/:empId', {templateUrl: 'views/employeeDetail.html', controller: 'EmployeeMaintenanceController'}).
+            when('/employees/:departmentId/edit/:empId', {templateUrl: 'views/employeeDetail.html', controller: 'EmployeeMaintenanceController'}).
             otherwise({redirectTo: '/'});
   }])
    .run(function($rootScope, $location){

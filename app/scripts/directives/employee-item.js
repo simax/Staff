@@ -10,15 +10,15 @@ angular.module('StaffApp.directives', ['md5', 'ui-gravatar'])
         employee: '='
       },
       link: function postLink(scope) {
-          scope.alertRemove = function(id){
-              alert("Remove employee with id: " + id);
+          scope.alertRemove = function(_id){
+              alert("Remove employee with id: " + _id);
               scope.departments = _(scope.departments).reject(function(el) {
-                  return el.id === id;
+                  return el.id === _id;
               });
           }
 
-          scope.edit = function(id) {
-              $location.path('employees/edit/' + id);
+          scope.edit = function(departmentId, _id) {
+              $location.path('employees/' + departmentId + '/edit/' + _id);
           }
       }
     };

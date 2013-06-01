@@ -41,7 +41,7 @@ function HttpServer(handlers) {
 HttpServer.prototype.start = function(port) {
   this.port = port;
   this.server.listen(port);
-  util.puts('Http Server running at http://localhost:' + port + '/');
+  util.puts('Http routes running at http://localhost:' + port + '/');
 };
 
 HttpServer.prototype.parseUrl_ = function(urlString) {
@@ -107,10 +107,10 @@ StaticServlet.prototype.sendError_ = function(req, res, error) {
       'Content-Type': 'text/html'
   });
   res.write('<!doctype html>\n');
-  res.write('<title>Internal Server Error</title>\n');
-  res.write('<h1>Internal Server Error</h1>');
+  res.write('<title>Internal routes Error</title>\n');
+  res.write('<h1>Internal routes Error</h1>');
   res.write('<pre>' + escapeHtml(util.inspect(error)) + '</pre>');
-  util.puts('500 Internal Server Error');
+  util.puts('500 Internal routes Error');
   util.puts(util.inspect(error));
 };
 
