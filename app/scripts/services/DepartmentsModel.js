@@ -1,24 +1,28 @@
 'use strict';
 
 angular.module('StaffApp.services')
-    .factory('DepartmentsModel', function($resource) {
+    .factory('DepartmentsModel', function(Restangular) {
 
-        var departments = $resource('/api/departments/:id', '{id:@_id}');
+        var departments = Restangular.all('departments')
 
         var getDepartments = function() {
-            return departments.query();
+            return departments.getList();
         };
 
         var getEmployeeById = function(departmentId, empId) {
-            empId = parseInt(empId);
-            var employee = undefined;
-            var departments = this.getDepartments();
-            _.each(departments, function(dep){
-                if(!employee){
-                    employee = _.find(dep.employees, function(emp) { return emp.id === empId });
-                }
-            });
-            return employee;
+
+            var x= Restangular.one('departments',departmentId).one('employees', empId).get();
+            return x;
+
+//            empId = parseInt(empId);
+//            var employee = undefined;
+//            var departments = this.getDepartments();
+//            _.each(departments, function(dep){
+//                if(!employee){
+//                    employee = _.find(dep.employees, function(emp) { return emp.id === empId });
+//                }
+//            });
+//            return employee;
         };
 
         return {

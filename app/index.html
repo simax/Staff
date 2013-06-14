@@ -40,7 +40,7 @@
 
                 <a class="brand" href="#">EKM Systems - Staff holiday planner</a>
                 <div class="nav-collapse collapse">
-                    <ul class="nav" >
+                    <ul class="nav" ng-controller="MainNavController">
                         <li ng-class="getClass('/')"><a href="#/">Home</a></li>
                         <li ng-class="getClass('/about')"><a href="#/about">About</a></li>
                         <li ng-class="getClass('/contact')"><a href="#/contact">Contact</a></li>
@@ -58,13 +58,15 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.min.js"></script>-->
-<script src="components/angular/angular.js"></script>
-<script src="components/angular-resource/angular-resource.js"></script>
-<script src="components/angular-cookies/angular-cookies.js"></script>
-<script src="components/angular-sanitize/angular-sanitize.js"></script>
+<script src="components/AngularJS/angular.js"></script>
+<script src="components/AngularJS/angular-resource.js"></script>
+<script src="components/AngularJS/angular-cookies.js"></script>
+<script src="components/AngularJS/angular-sanitize.js"></script>
 <script src="components/bootstrap/js/bootstrap.js"></script>
 <script src="scripts/directives/angularjs-gravatardirective/md5-service.js"></script>
 <script src="scripts/directives/angularjs-gravatardirective/gravatar-directive.js"></script>
+<script src="restangular.js"></script>
+
 </body>
 
 <!-- build:js scripts/scripts.js -->

@@ -3,7 +3,7 @@
 
 module.exports = function DepartmentRoutes(schemas) {
 
-    var Model = schemas.DepartmentSchemaModel;
+    var Department = schemas.DepartmentSchemaModel;
 
     this.post = function(req, res) {
         var entity,
@@ -19,7 +19,7 @@ module.exports = function DepartmentRoutes(schemas) {
 
         res.contentType('application/json');
 
-        return Model.find().sort({
+        return Department.find().sort({
             'name': 'asc'
         }).exec(function(err, data) {
                 if (err) {
@@ -31,14 +31,23 @@ module.exports = function DepartmentRoutes(schemas) {
 
     this.get = function(req, res) {
         console.log("req.params.id: " + req.params.id);
-        return Model.findById(req.params.id, function(err, entity) {
+        return Department.findById(req.params.id, function(err, entity) {
             return res.send(entity);
+        });
+    };
+
+    this.getEmployee = function(req, res) {
+        console.log("req.params.id: " + req.params.id);
+        return Department.findById(req.params.id, function(err, entity) {
+            return entity.findById(req.params.empId, function(err, entity) {
+                return entity;
+            });
         });
     };
 
     this.put = function(req, res) {
         var _this = this;
-        return Model.findById(req.params.id, function(err, entity) {
+        return Department.findById(req.params.id, function(err, entity) {
             _this.modelBind(entity, req);
             return entity.save(function(err) {
                 return _this.save(entity, res, err);
@@ -47,7 +56,7 @@ module.exports = function DepartmentRoutes(schemas) {
     };
 
     this["delete"] = function(req, res) {
-        return Model.findById(req.params.id, function(err, entity) {
+        return Department.findById(req.params.id, function(err, entity) {
             entity.remove();
             return res.send(204);
         });

@@ -38,6 +38,7 @@ var server = express();
 
             server.get('/departments', departmentRoutes.getall);
             server.get('/departments/:id', departmentRoutes.get);
+            server.get('/departments/:id/employees/empId', departmentRoutes.getEmployee);
             server.post('/departments', departmentRoutes.post);
             server.put('/departments/:id', departmentRoutes.put);
             server["delete"]('/departments/:id', departmentRoutes["delete"]);
