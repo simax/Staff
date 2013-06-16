@@ -9,8 +9,8 @@ var basePath = '',
 
 var schemas = new (require('./routes/schemas.js'))();
 
-var departmentRoutes = new (require('./routes/route.departments'))(schemas);
-var employeeRoutes = new (require('./routes/route.employees.js'))(schemas);
+//var departmentRoutes = new (require('./routes/route.departments'))(schemas);
+//var employeeRoutes = new (require('./routes/route.employees.js'))(schemas);
 
 var server = express();
 
@@ -31,25 +31,28 @@ var server = express();
         server.use(express.errorHandler());
     });
 
-    server.namespace(basePath, function() {
+//    server.namespace(basePath, function() {
+//
+//
+//        return server.namespace('/api', function() {
+//
+//            server.get('/departments', departmentRoutes.getall);
+//            server.get('/departments/:id', departmentRoutes.get);
+//            server.get('/departments/:id/employees/empId', departmentRoutes.getEmployee);
+//            server.post('/departments', departmentRoutes.post);
+//            server.put('/departments/:id', departmentRoutes.put);
+//            server["delete"]('/departments/:id', departmentRoutes["delete"]);
+//
+////            server.get('/employees', employeeRoutes.getall);
+////            server.get('/employees/:id', employeeRoutes.get);
+////            server.post('/employees', employeeRoutes.post);
+////            server.put('/employees/:id', employeeRoutes.put);
+////            server["delete"]('/employees/:id', employeeRoutes["delete"]);
+//        });
+//    });
 
-
-        return server.namespace('/api', function() {
-
-            server.get('/departments', departmentRoutes.getall);
-            server.get('/departments/:id', departmentRoutes.get);
-            server.get('/departments/:id/employees/empId', departmentRoutes.getEmployee);
-            server.post('/departments', departmentRoutes.post);
-            server.put('/departments/:id', departmentRoutes.put);
-            server["delete"]('/departments/:id', departmentRoutes["delete"]);
-
-//            server.get('/employees', employeeRoutes.getall);
-//            server.get('/employees/:id', employeeRoutes.get);
-//            server.post('/employees', employeeRoutes.post);
-//            server.put('/employees/:id', employeeRoutes.put);
-//            server["delete"]('/employees/:id', employeeRoutes["delete"]);
-        });
-    });
+    var angularBridge = new (require('angular-bridge'))(server, { urlPrefix: '/api/' });
+    angularBridge.addResource('departments', schemas.DepartmentSchemaModel);
 
     server.listen(8000);
 

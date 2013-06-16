@@ -11,8 +11,17 @@ angular.module('StaffApp.services')
 
         var getEmployeeById = function(departmentId, empId) {
 
-            var x= Restangular.one('departments',departmentId).one('employees', empId).get();
-            return x;
+            Restangular.one('departments',departmentId).one('employees', empId).get().then(function (emp){
+                return emp;
+            });
+
+
+//            Restangular.one('departments',departmentId).get().then(function(dept) {
+//                dept.one('employees', empId).get().then(function (emp){
+//                    return emp;
+//                });
+//
+//            });
 
 //            empId = parseInt(empId);
 //            var employee = undefined;

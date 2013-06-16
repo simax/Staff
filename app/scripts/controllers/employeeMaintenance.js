@@ -1,12 +1,14 @@
 'use strict';
 
 angular.module('StaffApp.controllers')
-    .controller('EmployeeMaintenanceController', function ($scope, DepartmentsModel, $routeParams, $location) {
+    .controller('EmployeeMaintenanceController', function ($scope, DepartmentsModel, $route, $location) {
+
         $scope.departments = DepartmentsModel.getDepartments();
-        $scope.employee = DepartmentsModel.getEmployeeById($routeParams.departmentId, $routeParams.empId);
+        $scope.employee = DepartmentsModel.getEmployeeById($route.current.params.departmentId, $route.current.params.empId);
+
         $scope.save = function (employee) {
             if(employee.id){
-                // Needs fixing, doen't work
+                // Needs fixing, doesn't work
                 var department = _.findWhere($scope.departments, { Name: departmentName});
                 var emp = _.findWhere(department.employees, {id: employee.id})
 
@@ -16,7 +18,7 @@ angular.module('StaffApp.controllers')
 
             } else {
                 // Add to array
-                var departmentName = $routeParams.departmentName;
+                var departmentName = $route.departmentName;
                 var department = _.findWhere($scope.departments, { name: departmentName});
                 department.employees.push(employee);
             }
