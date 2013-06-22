@@ -1,18 +1,18 @@
 
-require('express-namespace');
+    require('express-namespace');
+    var mers = require('mers');
 
-process.env.NODE_ENV = 'development';
+    process.env.NODE_ENV = 'development';
 
-var basePath = '',
-    express = require('express'),
-    path = require('path');
+    var basePath = '',
+        express = require('express'),
+        path = require('path');
 
-var schemas = new (require('./routes/schemas.js'))();
+    var schemas = require('./routes/schemas.js');
 
-//var departmentRoutes = new (require('./routes/route.departments'))(schemas);
-//var employeeRoutes = new (require('./routes/route.employees.js'))(schemas);
 
-var server = express();
+
+    var server = express();
 
     server.configure(function() {
 
@@ -21,6 +21,7 @@ var server = express();
 
         server.use(server.router);
         server.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+        server.use('/api', mers({uri:'mongodb://localhost:8120/staff'}).rest());
     });
 
     server.configure('development', function(){
@@ -31,17 +32,20 @@ var server = express();
         server.use(express.errorHandler());
     });
 
+
+
+//
 //    server.namespace(basePath, function() {
 //
 //
 //        return server.namespace('/api', function() {
 //
-//            server.get('/departments', departmentRoutes.getall);
-//            server.get('/departments/:id', departmentRoutes.get);
-//            server.get('/departments/:id/employees/empId', departmentRoutes.getEmployee);
-//            server.post('/departments', departmentRoutes.post);
-//            server.put('/departments/:id', departmentRoutes.put);
-//            server["delete"]('/departments/:id', departmentRoutes["delete"]);
+////            server.get('/departments', departmentRoutes.getall);
+////            server.get('/departments/:id', departmentRoutes.get);
+////            server.get('/departments/:id/employees/empId', departmentRoutes.getEmployee);
+////            server.post('/departments', departmentRoutes.post);
+////            server.put('/departments/:id', departmentRoutes.put);
+////            server["delete"]('/departments/:id', departmentRoutes["delete"]);
 //
 ////            server.get('/employees', employeeRoutes.getall);
 ////            server.get('/employees/:id', employeeRoutes.get);
@@ -51,9 +55,7 @@ var server = express();
 //        });
 //    });
 
-    var angularBridge = new (require('angular-bridge'))(server, { urlPrefix: '/api/' });
-    angularBridge.addResource('departments', schemas.DepartmentSchemaModel);
 
     server.listen(8000);
 
-module.exports = server ;
+    module.exports = server ;

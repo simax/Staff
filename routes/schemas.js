@@ -1,54 +1,52 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+    schema = mongoose.Schema,
+    objectId = mongoose.Schema.ObjectId;
 
-module.exports = function Schemas() {
-    this.schema = mongoose.Schema;
-    this.EmployeeSchema = new this.schema({
-        'firstname': {
-            type: String,
-            required: true,
-            trim: true
-        },
-        'lastname': {
-            type: String,
-            required: true,
-            trim: true
-        },
-        'email': {
-            type: String,
-            required: true,
-            trim: true,
-            index: true,
-            validate: /\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}\b/
-        },
-        'departmentId': {
-            type: this.schema.ObjectId,
-            trim: true,
-            required: true
-        },
-        'enddate': {
-            type: String,
-            trim: true
-        },
-        'active': {
-            type: Boolean,
-            "default": true
+EmployeeSchema = new schema({
+    'firstname': {
+        type: String,
+        required: true,
+        trim: true
+    },
+    'lastname': {
+        type: String,
+        required: true,
+        trim: true
+    },
+    'email': {
+        type: String,
+        required: true,
+        trim: true,
+        index: true,
+        validate: /\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}\b/
+    },
+    'departmentId': {
+        type: objectId,
+        trim: true,
+        required: true
+    },
+    'enddate': {
+        type: String,
+        trim: true
+    },
+    'active': {
+        type: Boolean,
+        "default": true
+    }
+});
+
+DepartmentSchema = new schema({
+    'name': {
+        type: String,
+        required: true,
+        trim: true,
+        index: {
+            unique: true
         }
-    });
-    this.EmployeeSchemaModel = mongoose.model('employees', this.EmployeeSchema);
+    },
+    'employees': [EmployeeSchema]
+});
 
-    this.DepartmentSchema = new this.schema({
-        'name': {
-            type: String,
-            required: true,
-            trim: true,
-            index: {
-                unique: true
-            }
-        },
-        'employees': [this.EmployeeSchema]
-    });
-    this.DepartmentSchemaModel = mongoose.model('departments', this.DepartmentSchema);
-
-    mongoose.connect('mongodb://localhost:8120/staff');
-};
+module.exports.department = DepartmentSchemaModel = mongoose.model('departments', DepartmentSchema);
+module.exports.employee = EmployeeSchemaModel = mongoose.model('employees', EmployeeSchema);
 
