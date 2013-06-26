@@ -5,11 +5,9 @@
     process.env.NODE_ENV = 'development';
 
     var basePath = '',
-        express = require('express'),
-        path = require('path');
+        express = require('express');
 
     var schemas = require('./routes/schemas.js');
-
 
 
     var server = express();
@@ -21,7 +19,12 @@
 
         server.use(server.router);
         server.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-        server.use('/api', mers({uri:'mongodb://localhost:8120/staff'}).rest());
+
+
+        server.use('/api', mers(
+            {
+                uri:'mongodb://localhost:8120/staff'
+            }).rest());
     });
 
     server.configure('development', function(){
