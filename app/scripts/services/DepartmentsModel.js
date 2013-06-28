@@ -3,7 +3,7 @@
 angular.module('StaffApp.services')
     .factory('DepartmentsModel', function(Restangular) {
 
-        var departments = Restangular.all('departments')
+        var departments = Restangular.all('department');
 
         var getDepartments = function() {
             return departments.getList();
@@ -11,9 +11,12 @@ angular.module('StaffApp.services')
 
         var getEmployeeById = function(departmentId, empId) {
 
-            Restangular.one('departments',departmentId).one('employees', empId).get().then(function (emp){
-                return emp;
-            });
+            return Restangular.one('department',departmentId).one('employees', empId).get();
+
+//            .then(function (emp){
+//                debugger;
+//                return emp[0];
+//            });
 
 
 //            Restangular.one('departments',departmentId).get().then(function(dept) {

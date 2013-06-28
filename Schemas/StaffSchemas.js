@@ -1,42 +1,42 @@
 var mongoose = require('mongoose'),
-    schema = mongoose.Schema,
+    Schema = mongoose.Schema,
     objectId = mongoose.Schema.ObjectId;
 
-EmployeeSchema = new schema({
-    'firstname': {
+var EmployeeSchema = new Schema({
+    firstname: {
         type: String,
         required: true,
         trim: true
     },
-    'lastname': {
+    lastname: {
         type: String,
         required: true,
         trim: true
     },
-    'email': {
+    email: {
         type: String,
         required: true,
         trim: true,
         index: true,
         validate: /\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}\b/
     },
-    'departmentId': {
+    departmentId: {
         type: objectId,
         trim: true,
         required: true
     },
-    'enddate': {
+    enddate: {
         type: String,
         trim: true
     },
-    'active': {
+    active: {
         type: Boolean,
         "default": true
     }
 });
 
-DepartmentSchema = new schema({
-    'name': {
+var DepartmentSchema = new Schema({
+    name: {
         type: String,
         required: true,
         trim: true,
@@ -44,9 +44,9 @@ DepartmentSchema = new schema({
             unique: true
         }
     },
-    'employees': [EmployeeSchema]
+    employees: [EmployeeSchema]
 });
 
-module.exports.department = DepartmentSchemaModel = mongoose.model('departments', DepartmentSchema);
-module.exports.employee = EmployeeSchemaModel = mongoose.model('employees', EmployeeSchema);
+//module.exports.employee =  mongoose.model('employee', EmployeeSchema);
+module.exports.department  = mongoose.model('department', DepartmentSchema);
 

@@ -19,7 +19,22 @@ angular.module('StaffApp', ['StaffApp.controllers', 'StaffApp.directives', 'Staf
     }])
     .config(['RestangularProvider', function(RestangularProvider) {
 
-        RestangularProvider.setBaseUrl('http://localhost\\:8000/api');
+        RestangularProvider.setBaseUrl('http://localhost:3000/api');
         RestangularProvider.setRestangularFields({id: '_id'});
 
+        // Now let's configure the response extractor for each request
+        RestangularProvider.setResponseExtractor(function(response, operation) {
+            // This is a get for a list
+            var newResponse;
+
+            if (operation === "getList") {
+                // Here we're returning an Array which has one special property metadata with our extra information
+                newResponse = response.payload;
+                // newResponse.metadata = response.data.meta;
+            } else {
+                // This is an element
+                newResponse = response.payload[0];
+            }
+            return newResponse;
+        });
     }]);
