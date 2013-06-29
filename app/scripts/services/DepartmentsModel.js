@@ -13,10 +13,6 @@ angular.module('StaffApp.services')
 
             return Restangular.one('department',departmentId).one('employees', empId).get();
 
-//            .then(function (emp){
-//                debugger;
-//                return emp[0];
-//            });
 
 
 //            Restangular.one('departments',departmentId).get().then(function(dept) {

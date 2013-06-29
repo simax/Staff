@@ -2,7 +2,7 @@
 
 xdescribe('Directive: employeeItem', function () {
   beforeEach(module('StaffApp.directives'));
-  beforeEach(module('directives/employee-item-template.html'));
+  beforeEach(module('directives/employee-item.html'));
 
 
   var element;

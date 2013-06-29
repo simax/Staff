@@ -4,30 +4,37 @@
         <div class="row-fluid">
             <div class="span4">
                 <fieldset>
-                    <div class="control-group" ng-class="{error: employeeForm.email.$invalid}">
-                        <label class="control-label">Email</label>
+
+                    <div class="control-group" ng-class="{error: employeeForm.firstname.$invalid}">
+                        <label class="control-label" >ID:</label>
                         <div class="controls">
-                            <input type="text" name="email" ng-model="employee.email" required placeholder="Email address">
-                            <!--<span ng-show="employeeForm.email.$error.required" class="help-inline">Required</span>-->
+                            <span class="input-large uneditable-input">{{employee._id}}</span>
                         </div>
                     </div>
 
                     <div class="control-group" ng-class="{error: employeeForm.firstname.$invalid}">
-                        <label class="control-label">First name</label>
+                        <label class="control-label" for="firstname">First name:</label>
                         <div class="controls">
-                            <input type="text" name="firstname" ng-model="employee.firstname" required placeholder="First name">
+                            <input type="text" id="firstname" name="firstname" ng-model="employee.firstname" required placeholder="First name">
                             <!--<span ng-show="employeeForm.firstname.$error.required" class="help-inline">Required</span>-->
                         </div>
                     </div>
 
                     <div class="control-group" ng-class="{error: employeeForm.lastname.$invalid}">
-                        <label class="control-label">Last name</label>
+                        <label class="control-label" for="lastname">Last name:</label>
                         <div class="controls">
-                            <input type="text" name="lastname" ng-model="employee.lastname" required placeholder="Last name">
+                            <input type="text" id="lastname" name="lastname" ng-model="employee.lastname" required placeholder="Last name">
                             <!--<span ng-show="employeeForm.lastname.$error.required" class="help-inline">Required</span>-->
                         </div>
                     </div>
 
+                    <div class="control-group" ng-class="{error: employeeForm.email.$invalid}">
+                        <label class="control-label" for="email">Email:</label>
+                        <div class="controls">
+                            <input class="input-xlarge" type="text" id="email" name="email" ng-model="employee.email" required placeholder="Email address">
+                            <!--<span ng-show="employeeForm.email.$error.required" class="help-inline">Required</span>-->
+                        </div>
+                    </div>
                 </fieldset>
             </div>
 

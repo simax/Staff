@@ -1,7 +1,7 @@
 
 var express = require('express'),
     mers = require('mers');
-    require('./Schemas/StaffSchemas.js');
+    require('./Schemas/DataSchemas.js');
 
     process.env.NODE_ENV = 'development';
 
