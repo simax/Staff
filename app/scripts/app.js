@@ -12,22 +12,16 @@ angular.module('StaffApp', ['StaffApp.controllers', 'StaffApp.directives', 'Staf
             when('/employees', {templateUrl: 'views/employeesList.html', controller: 'StaffListController'}).
             when('/about', {templateUrl: 'views/AboutApp.html', controller: 'AboutAppController'}).
             when('/contact', {templateUrl: 'views/Contact.html', controller: 'ContactController'}).
-            when('/employees/add/:departmentName', {templateUrl: 'views/employeeDetail.html', controller: 'EmployeeMaintenanceController'}).
+            when('/employees/add/:departmentName', {templateUrl: 'views/employeeDetail.html', controller: 'EmployeeAddController'}).
             when('/employees/:departmentId/edit/:empId',
             {
                 templateUrl: 'views/employeeDetail.html',
                 controller: 'EmployeeMaintenanceController',
                 resolve: {
                     employee: function($q, $route, DepartmentsModel) {
-                        var deferred = $q.defer();
-                        DepartmentsModel.getEmployeeById($route.current.params.departmentId, $route.current.params.empId)
-                            .then(function(emp) {
-                                deferred.resolve(emp);
-                            });
-                        return deferred.promise;
+                        return DepartmentsModel.getEmployeeById($route.current.params.departmentId, $route.current.params.empId);
                     }
                 }
-
             }).
             otherwise({redirectTo: '/'});
 
@@ -35,7 +29,6 @@ angular.module('StaffApp', ['StaffApp.controllers', 'StaffApp.directives', 'Staf
     .config(['RestangularProvider', function(RestangularProvider) {
 
         RestangularProvider.setBaseUrl('http://localhost:3000/api');
-//        RestangularProvider.setRestangularFields({id: '_id'});
 
         // Now let's configure the response extractor for each request
         RestangularProvider.setResponseExtractor(function(response, operation) {
