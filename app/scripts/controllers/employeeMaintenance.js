@@ -1,20 +1,17 @@
 'use strict';
 
 angular.module('StaffApp.controllers')
-    .controller('EmployeeMaintenanceController', function (Restangular, $scope, DepartmentsModel, $route, $location) {
+    .controller('EmployeeMaintenanceController', function (Restangular, $scope, DepartmentsModel, $route, $location, employee) {
 
         $scope.departments = DepartmentsModel.getDepartments();
-        $scope.employee = $route.current.locals.employee;
 
+        var original = employee;
+        $scope.employee = Restangular.copy(original);
 
         $scope.save = function (employee) {
             debugger;
             if(employee._id){
-                employee.put();
-
-            } else {
-                var dep = Restangular.one('department', employee.departmentId).getList('employees');
-                dep.post(employee);
+                $scope.employee.put();
             }
             $location.path("/employees");
         }
