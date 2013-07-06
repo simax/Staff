@@ -5,24 +5,19 @@ angular.module('StaffApp.controllers')
 
         $scope.departments = DepartmentsModel.getDepartments();
 
-        $scope.save = function () {
-            debugger;
-//            Restangular.one('department', $scope.employee.departmentId).getList('employees').post($scope.employee).then(function (employee){
-            Restangular.all("department").getList().then(function (deps) {
-                var first = deps[0];
-                first.post('employees', $scope.employee).then(function (employee){
-                    $location.path("/employees");
-                });
-            });
+        $scope.save = function (employee) {
+            debugger ;
 
-//            Restangular.one('department', '505a10d0caa74a580d000002').get().then(function (dep){
-//                dep.post('employees', $scope.employee).then(function (employee){
-//                    $location.path("/employees");
-//                });
-//
-//            })
-//            Restangular.all('department').post({name: 'This is a new department'}).then(function (){
-//                $location.path("/employees");
-//            });
+//            var employees = DepartmentsModel.getDepartmentById('505a10d0caa74a580d000002').all('employees');
+            var employees = Restangular.one('department','505a10d0caa74a580d000002').all('employees');
+
+            var newEmployee = {
+                firstname:  employee.firstname,
+                lastname:  employee.lastname,
+                email: employee.email
+            };
+
+            employees.post(newEmployee);
+
         }
     });

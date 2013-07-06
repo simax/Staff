@@ -9,10 +9,21 @@ angular.module('StaffApp.controllers')
         $scope.employee = Restangular.copy(original);
 
         $scope.save = function (employee) {
-            debugger;
-            if(employee._id){
-                $scope.employee.put();
+
+            if(employee._id) {
+
+                DepartmentsModel.getEmployeeById(employee.departmentId, employee._id).then(function (emp){
+
+                    emp.firstname = employee.firstname;
+                    emp.lastname = employee.lastname;
+                    emp.email = employee.email;
+
+                    debugger;
+                    emp.put();
+
+                });
             }
+
             $location.path("/employees");
         }
     });

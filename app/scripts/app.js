@@ -18,7 +18,7 @@ angular.module('StaffApp', ['StaffApp.controllers', 'StaffApp.directives', 'Staf
                 templateUrl: 'views/employeeDetail.html',
                 controller: 'EmployeeMaintenanceController',
                 resolve: {
-                    employee: function($q, $route, DepartmentsModel) {
+                    employee: function($route, DepartmentsModel) {
                         return DepartmentsModel.getEmployeeById($route.current.params.departmentId, $route.current.params.empId);
                     }
                 }
@@ -29,6 +29,10 @@ angular.module('StaffApp', ['StaffApp.controllers', 'StaffApp.directives', 'Staf
     .config(['RestangularProvider', function(RestangularProvider) {
 
         RestangularProvider.setBaseUrl('http://localhost:3000/api');
+        RestangularProvider.setRestangularFields({
+            id: "_id",
+            route: "restangularRoute"
+        });
 
         // Now let's configure the response extractor for each request
         RestangularProvider.setResponseExtractor(function(response, operation) {

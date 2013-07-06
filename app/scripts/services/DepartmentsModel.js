@@ -9,11 +9,16 @@ angular.module('StaffApp.services')
             return departments.getList();
         };
 
+        var getDepartmentById = function(departmentId) {
+            return Restangular.one('department',departmentId);
+        };
+
         var getEmployeeById = function(departmentId, empId) {
             return Restangular.one('department',departmentId).one('employees', empId).get();
         };
 
         return {
+            getDepartmentById: getDepartmentById,
             getEmployeeById: getEmployeeById,
             getDepartments: getDepartments
         };

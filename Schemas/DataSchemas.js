@@ -47,6 +47,6 @@ var DepartmentSchema = new Schema({
     employees: [EmployeeSchema]
 });
 
-//module.exports.employee =  mongoose.model('employee', EmployeeSchema);
+module.exports.employee =  mongoose.model('employee', EmployeeSchema);
 module.exports.department  = mongoose.model('department', DepartmentSchema);
 
