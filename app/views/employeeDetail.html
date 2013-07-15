@@ -5,11 +5,18 @@
             <div class="span4">
                 <fieldset>
 
-                    <div class="control-group" ng-class="{error: employeeForm.firstname.$invalid}">
+                    <div class="control-group">
                         <label class="control-label" >ID:</label>
                         <div class="controls">
                             <span class="input-large uneditable-input">{{employee._id}}</span>
                         </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" >Department Manager:</label>
+                        <div class="controls">
+                            <i class="icon-ok" ng-show="{{employee.IsManager}}"></i>
+                            <button ng-hide="{{employee.IsManager}}" ng-click="SetAsManager(employee)" class="btn btn-primary">Set as department manager</button>                        </div>
                     </div>
 
                     <div class="control-group" ng-class="{error: employeeForm.firstname.$invalid}">

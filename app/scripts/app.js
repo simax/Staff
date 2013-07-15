@@ -4,7 +4,7 @@ angular.module('StaffApp.controllers', []);
 angular.module('StaffApp.directives', []);
 angular.module('StaffApp.filters', []);
 angular.module('StaffApp.services', []);
-angular.module('StaffApp', ['StaffApp.controllers', 'StaffApp.directives', 'StaffApp.filters', 'StaffApp.services', 'restangular'])
+angular.module('StaffApp', ['StaffApp.controllers', 'StaffApp.directives', 'StaffApp.filters', 'StaffApp.services', 'restangular', 'ui.bootstrap'])
     .config(['$routeProvider', function($routeProvider) {
 
         $routeProvider.

@@ -32,6 +32,10 @@ var EmployeeSchema = new Schema({
     active: {
         type: Boolean,
         "default": true
+    },
+    IsManager: {
+        type: Boolean,
+        "default": false
     }
 });
 
