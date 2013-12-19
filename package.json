@@ -4,7 +4,7 @@
   "dependencies": {
     "express": "~3.2.5",
     "express-namespace": "~0.1.1",
-    "mers": "~0.6.2-0",
+    "mers": "~0.7.1-0",
     "mongoose": "~3.6.11",
     "restangular": "~1.0.3"
   },
