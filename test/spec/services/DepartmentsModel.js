@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Service: DepartmentsModel', function () {
+xdescribe('Service: DepartmentsModel', function () {
 
   // load the service's module
   beforeEach(module('StaffApp.services'));
