@@ -4,7 +4,7 @@ angular.module('StaffApp.controllers', []);
 angular.module('StaffApp.directives', []);
 angular.module('StaffApp.filters', []);
 angular.module('StaffApp.services', []);
-angular.module('StaffApp', ['StaffApp.controllers', 'StaffApp.directives', 'StaffApp.filters', 'StaffApp.services', 'ui.bootstrap'])
+angular.module('StaffApp', ['StaffApp.controllers', 'StaffApp.directives', 'StaffApp.filters', 'StaffApp.services', 'restangular', 'ui.bootstrap'])
     .config(['$routeProvider', function($routeProvider) {
 
         $routeProvider.
@@ -28,8 +28,8 @@ angular.module('StaffApp', ['StaffApp.controllers', 'StaffApp.directives', 'Staf
     }])
     .config(['RestangularProvider', function(RestangularProvider) {
 
-//        RestangularProvider.setBaseUrl('http://localhost:3000/api');
-        RestangularProvider.setBaseUrl('/api');
+        RestangularProvider.setBaseUrl('http://localhost:3000/api');
+//        RestangularProvider.setBaseUrl('/api');
         RestangularProvider.setRestangularFields({
             id: "_id",
             route: "restangularRoute"
