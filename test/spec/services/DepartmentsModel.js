@@ -1,23 +1,34 @@
 'use strict';
 
-xdescribe('Service: DepartmentsModel', function () {
+describe('Service: DepartmentsModel', function () {
 
-  // load the service's module
-  beforeEach(module('StaffApp.services'));
+    // load the service's module
+    beforeEach(module('StaffApp.services'));
 
-  // instantiate service
-  var departmentsModel;
-    
-  beforeEach(inject(function (DepartmentsModel) {
-    departmentsModel = DepartmentsModel;
-  }));
+    // load the controller's module
+    beforeEach(module('restangular'));
 
-  it('should be defined', function () {
-    expect(departmentsModel).toBeDefined();
-  });
+    // instantiate service
+    var departmentsModel;
 
-  it('should have method getDepartments()', function () {
-    expect(departmentsModel.getDepartments()).toBeDefined();
-  });
+    beforeEach(inject(function (DepartmentsModel) {
+        departmentsModel = DepartmentsModel;
+    }));
+
+    it('departmentsModel should be defined', function () {
+        expect(departmentsModel).toBeDefined();
+    });
+
+    it('should have method getDepartments()', function () {
+        expect(departmentsModel.getDepartments()).toBeDefined();
+    });
+
+    it('should have method getDepartments()', function () {
+        expect(departmentsModel.getDepartmentById()).toBeDefined();
+    });
+
+    it('should have method getDepartments()', function () {
+        expect(departmentsModel.getEmployeeById()).toBeDefined();
+    });
 
 });

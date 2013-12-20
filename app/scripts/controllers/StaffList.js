@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('StaffApp.controllers')
-    .controller('StaffListController', function ($scope, $location, DepartmentsModel) {
+    .controller('StaffListController', ["$scope", "$location", "DepartmentsModel", function ($scope, $location, DepartmentsModel) {
 
         $scope.init = function() {
 
@@ -14,4 +14,4 @@ angular.module('StaffApp.controllers')
         };
 
         $scope.init();
-    });
+    }]);
